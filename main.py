@@ -50,19 +50,19 @@ def user_varification():
             verify_error = "Passwords do not match."
 
     if not email_error and not password_error and not verify_error:
-        return render_template ('welcome.html', username = username)
+        return redirect ('/welcome?username=' + username)
+
     else:
         return render_template('index.html', email_error = email_error, password_error = password_error, verify_error = verify_error, username_error = username_error)
 
+
+@app.route('/welcome', methods = ['GET'])
+def welcome():
+    username = request.args.get('username')
+    return render_template ('welcome.html', username=username)
 
 @app.route("/")
 def index ():
     return render_template('index.html')
 
 app.run()
-
-
-
-
-
-
