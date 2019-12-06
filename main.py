@@ -36,6 +36,7 @@ def user_varification():
     else:
        if not len(username) > 3 or len(username) > 20:
         username_error = "Please enter a password between 3 and 20 characters."
+        username = ''
         
     if password == '':
         password_error = "Please enter a password between 3 and 20 characters."
@@ -53,7 +54,7 @@ def user_varification():
         return redirect ('/welcome?username=' + username)
 
     else:
-        return render_template('index.html', email_error = email_error, password_error = password_error, verify_error = verify_error, username_error = username_error)
+        return render_template('index.html', email_error = email_error, password_error = password_error, verify_error = verify_error, username_error = username_error, username=username)
 
 
 @app.route('/welcome', methods = ['GET'])
