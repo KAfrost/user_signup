@@ -34,13 +34,13 @@ def user_varification():
     if username == '':
             username_error = "Please enter a password between 3 and 20 characters."
     else:
-       if not len(username) < 3 and len(username) > 20:
+       if not len(username) > 3 or len(username) > 20:
         username_error = "Please enter a password between 3 and 20 characters."
         
     if password == '':
         password_error = "Please enter a password between 3 and 20 characters."
     else:
-        if not len(password) < 3 and len(password) > 20:
+        if not len(password) > 3 or len(password) > 20:
             password_error = "Please enter a password between 3 and 20 characters."
 
     if verify_password != password:
